@@ -18,6 +18,9 @@ public class ProductViewController {
     //LISTAR productos
     @GetMapping
     public String list(Model model) {
+        var productos = repo.findAll();
+        System.out.println("Productos encontrados: " + productos.size());
+        productos.forEach(p -> System.out.println(p.getName()));
         model.addAttribute("products", repo.findAll()); //atrae de la base de datos todos los productos
         return "products/list"; // buscará templates/products/list.html
     }
@@ -35,7 +38,7 @@ public class ProductViewController {
         return "redirect:/products";
     }
 
-    // 3. FORMULARIO EDITAR
+    //FORMULARIO EDITAR
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         Product product = repo.findById(id)
@@ -51,7 +54,7 @@ public class ProductViewController {
         return "redirect:/products";
     }
 
-    // 4. ELIMINAR
+    //ELIMINAR
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         repo.deleteById(id);
