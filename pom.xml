@@ -88,6 +88,20 @@
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+		<dependency>
+			<!-- Libreria que permite reducir el codigo boilerplate, como getters, setters, constructores, toString, hashCode, equals, builders, etc -->
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<!-- Permite generar documentacion automatica de la API REST, genera una interfaz visual para probar los endpoints -->
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
